@@ -17,8 +17,8 @@ jobs:
           chmod 600 ~/.ssh/ec2.pem
           ssh-keyscan -H "$EC2_HOST" >> ~/.ssh/known_hosts
 
-          ssh -i ~/.ssh/ec2.pem "ec2-user@$EC2_HOST" 'bash -se' <<'EOF'
-          APP="/home/ec2-user/ec2-webapp"
+          ssh -i ~/.ssh/ec2.pem "ubuntu@$EC2_HOST" 'bash -se' <<'EOF'
+          APP="/home/ubuntu/ec2-webapp"
           if [ -d "$APP/.git" ]; then
             cd "$APP"
             git pull --ff-only origin main
